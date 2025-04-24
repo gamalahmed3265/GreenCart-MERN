@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { useAppContext } from "../context/AppContext";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { cart, logo, profile_icon, search } from "../assets/imports";
 import { Pages } from "../constent/links";
 const Header = () => {
   const [open, setOpen] = useState(false);
-  const { user, setUser, showUserLogin, setShowUserLogin } = useAppContext();
+  const { user, setUser, setShowUserLogin } = useAppContext();
   const [searchToggle, setSearchToggle] = useState(false);
+  const navigate = useNavigate();
 
   const logout = async () => {
-    setUser(null);
+    setUser(false);
     navigate(Pages.HOME);
   };
   return (

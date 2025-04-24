@@ -1,16 +1,27 @@
 import { createContext, ReactNode, useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
-// eslint-disable-next-line react-refresh/only-export-components
-export const AppContext = createContext({});
+interface AppContextType {
+  user: boolean;
+  setUser: (value: boolean) => void;
+  seller: boolean;
+  setSeller: (value: boolean) => void;
+  showUserLogin: boolean;
+  setShowUserLogin: (value: boolean) => void;
+}
 
-export const AppContextProvider = ({ children }: { children: ReactNode }) => {
-  const navigate = useNavigate();
-  const [user, setUser] = useState(true);
-  const [seller, setSeller] = useState(false);
-  const [showUserLogin, setShowUserLogin] = useState(false);
-  const value = {
-    navigate,
+// Create context with initial empty object that matches our type
+export const AppContext = createContext<AppContextType>({} as AppContextType);
+
+interface AppContextProviderProps {
+  children: ReactNode;
+}
+
+export const AppContextProvider = ({ children }: AppContextProviderProps) => {
+  const [user, setUser] = useState<boolean>(false);
+  const [seller, setSeller] = useState<boolean>(false);
+  const [showUserLogin, setShowUserLogin] = useState<boolean>(false);
+
+  const value: AppContextType = {
     user,
     setUser,
     seller,
@@ -18,10 +29,15 @@ export const AppContextProvider = ({ children }: { children: ReactNode }) => {
     showUserLogin,
     setShowUserLogin,
   };
+
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
-export const useAppContext = () => {
-  return useContext(AppContext);
+// Custom hook with proper TypeScript typing
+export const useAppContext = (): AppContextType => {
+  const context = useContext(AppContext);
+  if (context === undefined) {
+    throw new Error("useAppContext must be used within an AppContextProvider");
+  }
+  return context;
 };
