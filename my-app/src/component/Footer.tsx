@@ -1,9 +1,15 @@
+import { Link, NavLink } from "react-router-dom";
+import { logo } from "../assets/imports";
+import { Pages } from "../constent/links";
+
 const Footer = () => {
   return (
     <footer className="bg-primary/10 px-6 md:px-16 lg:px-24 xl:px-32 mt-24">
       <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-10 border-b border-gray-500/30 text-gray-500">
         <div>
-          <img className="w-34 md:w-32" alt="logo" src="/assets/logo.svg" />
+          <NavLink to={Pages.HOME}>
+            <img className="w-34 md:w-32" alt="logo" src={logo} />
+          </NavLink>
           <p className="max-w-[410px] mt-6">
             We deliver fresh groceries and snacks straight to your door. Trusted
             by thousands, we aim to make your shopping experience simple and
@@ -17,29 +23,29 @@ const Footer = () => {
             </h2>
             <ul className="text-sm space-y-1">
               <li>
-                <a className="hover:underline transition" href="#">
+                <Link className="hover:underline transition" to="#">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="hover:underline transition" href="#">
+                <Link className="hover:underline transition" to="#">
                   Best Sellers
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="hover:underline transition" href="#">
+                <Link className="hover:underline transition" to="#">
                   Offers &amp; Deals
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="hover:underline transition" href="#">
+                <Link className="hover:underline transition" to="#">
                   Contact Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="hover:underline transition" href="#">
+                <Link className="hover:underline transition" to="#">
                   FAQs
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -49,29 +55,29 @@ const Footer = () => {
             </h2>
             <ul className="text-sm space-y-1">
               <li>
-                <a className="hover:underline transition" href="#">
+                <Link className="hover:underline transition" to="#">
                   Delivery Information
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="hover:underline transition" href="#">
+                <Link className="hover:underline transition" to="#">
                   Return &amp; Refund Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="hover:underline transition" href="#">
+                <Link className="hover:underline transition" to="#">
                   Payment Methods
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="hover:underline transition" href="#">
+                <Link className="hover:underline transition" to="#">
                   Track your Order
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="hover:underline transition" href="#">
+                <Link className="hover:underline transition" to="#">
                   Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -81,24 +87,24 @@ const Footer = () => {
             </h2>
             <ul className="text-sm space-y-1">
               <li>
-                <a className="hover:underline transition" href="#">
+                <Link className="hover:underline transition" to="#">
                   Instagram
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="hover:underline transition" href="#">
+                <Link className="hover:underline transition" to="#">
                   Twitter
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="hover:underline transition" href="#">
+                <Link className="hover:underline transition" to="#">
                   Facebook
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="hover:underline transition" href="#">
+                <Link className="hover:underline transition" to="#">
                   YouTube
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

@@ -2,13 +2,15 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
-import Header from "./component/Header.tsx";
-import Footer from "./component/Footer.tsx";
+import { BrowserRouter } from "react-router-dom";
+import { AppContextProvider } from "./context/AppContext.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Header />
-    <App />
-    <Footer />
+    <BrowserRouter>
+      <AppContextProvider>
+        <App />
+      </AppContextProvider>
+    </BrowserRouter>
   </StrictMode>
 );
